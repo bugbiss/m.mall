@@ -1,6 +1,25 @@
 <template>
   <div class="home-page">
-    home
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
+    <div class="box">123</div>
   </div>
 </template>
 
@@ -12,6 +31,10 @@ export default {
 
 <style lang="less" scoped>
 .home-page {
-  font-size: 50px;
+  padding-bottom: 120px;
+  .box {
+    line-height: 200px;
+    font-size: 50px;
+  }
 }
 </style>

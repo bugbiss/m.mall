@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './styles/reset.less'
 import VScroll from './components/v-scroll'
+import './styles/main.less'
 
 Vue.config.productionTip = false
 

@@ -8,8 +8,7 @@ module.exports = {
   // baseUrl: BASE_URL,
   // publicPath: './',
   chainWebpack: config => {
-    config.resolve.alias
-      .set('@', resolve('src'))
+    config.resolve.alias.set('@', resolve('src'))
   },
   productionSourceMap: false
 }
