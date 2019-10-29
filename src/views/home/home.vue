@@ -1,31 +1,31 @@
 <template>
   <div class="home-page">
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
-    <div class="box">123</div>
+    <v-swiper :list="bannerList" />
   </div>
 </template>
 
 <script>
-export default {
+import VSwiper from '@/components/v-swiper/v-swiper'
 
+export default {
+  components: {
+    VSwiper
+  },
+  data () {
+    return {
+      bannerList: []
+    }
+  },
+  mounted () {
+    this.getBannerList()
+  },
+  methods: {
+    getBannerList () {
+      this.$http.get('/bannerList').then(res => {
+        this.bannerList = res
+      })
+    }
+  }
 }
 </script>
 
