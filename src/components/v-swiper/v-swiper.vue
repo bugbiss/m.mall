@@ -1,7 +1,7 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper">
+  <swiper :options="swiperOption" ref="mySwiper" v-if="list.length">
     <swiper-slide v-for="item in list" :key="item.id">
-      <img :src="item.img">
+      <slot :item="item"></slot>
     </swiper-slide>
   </swiper>
 </template>
@@ -9,6 +9,7 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+
 export default {
   components: {
     swiper,
@@ -18,7 +19,16 @@ export default {
     list: {
       type: Array,
       required: true
-    }
+    },
+    delay: {
+      type: Number,
+      default: 4000
+    },
+    speed: {
+      type: Number,
+      default: 500
+    },
+    loop: Boolean
   },
   computed: {
     swiper () {
@@ -28,7 +38,12 @@ export default {
   data () {
     return {
       swiperOption: {
-        autoHeight: true
+        loop: this.loop,
+        speed: this.speed,
+        autoplay: {
+          delay: this.delay,
+          disableOnInteraction: false
+        }
       }
     }
   }
@@ -36,7 +51,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.v-swiper {
 
-}
 </style>

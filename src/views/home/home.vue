@@ -1,6 +1,12 @@
 <template>
   <div class="home-page">
-    <v-swiper :list="bannerList" />
+    <v-swiper :list="bannerList" loop>
+      <template v-slot="{ item }">
+        <div class="slide">
+          <img :src="item.img">
+        </div>
+      </template>
+    </v-swiper>
   </div>
 </template>
 
@@ -32,9 +38,13 @@ export default {
 <style lang="less" scoped>
 .home-page {
   padding-bottom: 120px;
-  .box {
-    line-height: 200px;
-    font-size: 50px;
+  .slide {
+    padding: 0 30px;
+    height: 200px;
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
   }
 }
 </style>
