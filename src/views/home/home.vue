@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <v-swiper :list="bannerList" loop>
+    <v-swiper :list="bannerList" slideWidth="92%" loop>
       <template v-slot="{ item }">
         <div class="slide">
           <img :src="item.img">
@@ -39,8 +39,8 @@ export default {
 .home-page {
   padding-bottom: 120px;
   .slide {
-    padding: 0 30px;
-    height: 200px;
+    height: 260px;
+    background: #eaeaea;
     img {
       width: 100%;
       border-radius: 8px;

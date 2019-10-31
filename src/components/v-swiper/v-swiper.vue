@@ -1,6 +1,6 @@
 <template>
   <swiper :options="swiperOption" ref="mySwiper" v-if="list.length">
-    <swiper-slide v-for="item in list" :key="item.id">
+    <swiper-slide :style="{ width: slideWidth }" v-for="item in list" :key="item.id">
       <slot :item="item"></slot>
     </swiper-slide>
   </swiper>
@@ -19,6 +19,10 @@ export default {
     list: {
       type: Array,
       required: true
+    },
+    slideWidth: {
+      type: String,
+      default: '100%'
     },
     delay: {
       type: Number,
@@ -43,6 +47,14 @@ export default {
         autoplay: {
           delay: this.delay,
           disableOnInteraction: false
+        },
+        effect: 'coverflow',
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 0,
+          stretch: -40,
+          slideShadows: false
         }
       }
     }
