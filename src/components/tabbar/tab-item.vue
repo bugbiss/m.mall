@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { findBrothersComponents } from '@/utils'
+import { findParentComponents, findBrothersComponents } from '@/utils'
 
 export default {
   name: 'TabItem',
@@ -23,13 +23,15 @@ export default {
   },
   methods: {
     handleClick () {
+      const parent = findParentComponents(this, 'Tabbar')
       const brothers = findBrothersComponents(this, 'TabItem', false)
       brothers.forEach(item => {
         item.active = false
       })
       const index = brothers.findIndex(item => item === this)
       this.active = true
-      this.$emit('click', index)
+      parent.onChange(index)
+      this.$emit('click')
     }
   }
 }

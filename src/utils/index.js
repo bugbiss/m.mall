@@ -1,3 +1,15 @@
+// 查找父组件
+export const findParentComponents = (context, componentName) => {
+  let parent = context.$parent
+  let name = parent.$options.name
+
+  while (parent && (!name || [componentName].indexOf(name) < 0)) {
+    parent = parent.$parent
+    if (parent) name = parent.$options.name
+  }
+  return parent
+}
+
 // 查找子组件
 export const findChildrenComponents = (context, componentName) => {
   return context.$children.reduce((components, child) => {

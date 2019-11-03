@@ -12,6 +12,11 @@ export default {
   mounted () {
     const children = findChildrenComponents(this, 'TabItem')
     children[0].active = true
+  },
+  methods: {
+    onChange (index) {
+      this.$emit('change', index)
+    }
   }
 }
 </script>
